@@ -1,0 +1,9 @@
+.home_main{
+    margin-bottom: 50px;
+    background-color: rgba(0, 0, 0, 0.411);
+}
+
+.carousel{
+    margin-bottom: 50px;
+    z-index: -1;
+}

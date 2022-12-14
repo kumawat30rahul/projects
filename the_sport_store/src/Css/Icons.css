@@ -1,0 +1,11 @@
+.main{
+    display: flex;
+    align-items: center;
+}
+.main_icons{
+    cursor: pointer;
+    display: flex;
+    width: 120px;
+    align-items: center;
+    justify-content: space-between;
+}

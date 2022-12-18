@@ -5,14 +5,25 @@ import LOGO from './LOGO.png';
 import Icons from './Icons'
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import MenuIcon from '@mui/icons-material/Menu';
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
+
 
 
 function Navbar() {
   return (
     <div className='main_navbar'>
+
       <div className='second_navbar'>
-        <div className='menu_btn'>
-          <MenuIcon />
+        <div className='main_sidebar'>
+          <div className='menu_btn'>
+              <MenuIcon />
+          </div>
+          <div className='open_sidebar'>
+            Hello
+          </div>
+        </div>
+        <div className='fav_icon'>
+            <FavoriteTwoToneIcon />
         </div>
         <div className='div_logo'>
           <img src={LOGO} alt='logo' className='logo'/>
@@ -30,6 +41,7 @@ function Navbar() {
           <Icons />
         </div>
       </div>
+        
     </div>
   )
 }

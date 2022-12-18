@@ -1,9 +1,14 @@
 .home_main{
     margin-bottom: 50px;
-    background-color: rgba(0, 0, 0, 0.411);
+    height: 500px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.411) !important;
+
 }
 
-.carousel{
-    margin-bottom: 50px;
-    z-index: -1;
+.home{
+    
+    backdrop-filter: blur(20px);
+    height: 200px;
+    width: 300px;
 }

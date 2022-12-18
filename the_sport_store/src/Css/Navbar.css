@@ -57,7 +57,7 @@ input:focus{
 
 .icons{
     height: 60px;
-    width: auto;
+    width: auto !important;
     display: flex;
     align-items: center;
 }
@@ -75,7 +75,7 @@ input:focus{
     width: auto;
 }
 
-.menu_btn{
+.menu_btn,.fav_icon, .open_sidebar{
     display: none;
 }
 
@@ -85,30 +85,66 @@ input:focus{
         display: none;
     }
 
+    .icons{
+        height: 60px;
+        width: auto;
+    }
     .icons > .search_main > input{
         display: none;
     }
 
     .icons > .search_main {
-        width: 15px;
+        height: 60px;
+        width: 24px;
+        margin: 0;
     }
     .icons > .search_main > .div_icon{
         background-color: white;
         border-radius: 10px;
+        margin: 0;
     }
 
+   
     .div_logo{
         margin: 0 auto;
-        padding-left: 110px;
+        padding-left: 30px;
     }
+    
+   
     .menu_btn{
         display: block;
-        margin: 0 10px 0 10px;
+        margin: 0 10px 0 5px;
         font-size: 24px;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
+    .second_navbar{
+        padding: 0 10px 0 10px;
+       
+    }
+
+    .fav_icon{
+        height: 60px;
+        width:auto;
+        margin: 0 10px 0 10px;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* .open_sidebar{
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        height: 100%;
+        width: 100%;
+        background-color: yellow;
+        box-shadow: 0 1 10px rgba(0, 0, 0, 0.253);
+    } */
     
 }
+

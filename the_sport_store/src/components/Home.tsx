@@ -4,11 +4,10 @@ import '../Css/Home.css'
 const Home = () => {
   return (
     <div className='home_main'>
-      <div className='carousel'>
-       
+      HOME
+      <div className="home">
+        wow
       </div>
-      
-      
     </div>
   )
 }

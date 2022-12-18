@@ -26,7 +26,7 @@ h1,h2,h3,p{
     transition: 250ms;
 }
 .front > .name{
-    margin: 10px 0;
+    margin: 4px 0;
 }
 .front > img{
     height: 12rem;
@@ -58,14 +58,26 @@ h1,h2,h3,p{
    z-index: 999;
 }
 
+.icon{
+    margin: 0;
+    padding: 0;
+}
 .bookmark{
     position: absolute;
+    z-index: 10000;
     top: 0;
     right: 1em;
     color: white;
+    font-weight: bold;
     background-color:rgba(0, 0, 0, 0.692);
     padding: 5px;
     clip-path: polygon(100% 0, 100% 100%, 49% 80%, 0 100%, 0 0);
+    transition: transform 350ms cubic-bezier(0.22, 0.89, 0.74, 1.06);
+}
+
+.game:hover .bookmark{
+    transform: translate(170%, -83.3%);
+    transition: transform 200ms cubic-bezier(0.22, 0.89, 0.74, 1.06);
 }
 
 .background{
@@ -109,7 +121,7 @@ h1,h2,h3,p{
 .back{
     height: 12rem;
     position: absolute;
-    top: 38%;
+    top: 40%;
     left: 0;
     right: 0;
     display: flex;
@@ -117,8 +129,6 @@ h1,h2,h3,p{
     align-items: center;
     gap: 0.7em;
     opacity: 0;
-    
-    
 }
 
 .game:hover .back{
@@ -128,7 +138,7 @@ h1,h2,h3,p{
 
 .game:hover .back > h3 {
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
 }
 .streamin-info > p {
     padding: 0 10px 0 10px;
@@ -161,7 +171,7 @@ h1,h2,h3,p{
     background-color: var(--clr-secondary);
     color: var(--clr-light);
     font-weight: bold;
-    
+
 }
 .back > .streamers > .streamer{
     text-align: center;
@@ -187,5 +197,7 @@ h1,h2,h3,p{
     transition: transform 250ms ease-in,
                 opacity 450ms ease-in;
 }
+
+
 
 

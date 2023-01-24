@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100%;
+    font-family: 'Teko', sans-serif;
+   
+}
+
+.body_am{
+    background-color: #111b21;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://images.vexels.com/media/users/3/205874/isolated/preview/cca46754eb5936e52a1f17d4ee3e88bd-am-word-doodle.png");
+    background-size: 100px 100px;
+}
+
+.body_pm{
+    background-color: #111b21;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("https://o.remove.bg/downloads/8c127765-b038-4191-9da2-c6c699da4951/PM-logo-design-vector-Graphics-20841164-1-removebg-preview.png");
+    background-size: 100px 100px;
+}
+
+.digital_clock{
+    position: relative;
+    width: 800px;
+    height: 400px;
+    background-color: #222e35;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 50px 30px 50px 30px;
+
+}
+
+.digital_clock > div {
+    margin: 20px;
+    height: 300px;
+    width: 253.3px;
+    background-color: #aebac1;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px dotted black;
+}
+
+.digital_clock > div > p{
+    font-size: 150px;
+    height: 200px;
+    width: auto;
+}
+
+/* Two dots in between the divs */
+
+.clock_colons{
+    font-size: 100px;
+    margin: 150px 0 0 0;
+    
+}

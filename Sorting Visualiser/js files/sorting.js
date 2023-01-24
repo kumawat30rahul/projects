@@ -2,7 +2,7 @@
 
 let bars = []
 
-for(let i = 0; i<500 ; i++){
+for(let i = 0; i<100 ; i++){
     let randomNumber = Math.round(Math.random()*500)
     bars.push(randomNumber);
 }

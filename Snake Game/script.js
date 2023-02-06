@@ -83,6 +83,8 @@ function gameEngine(){
         speed += 0.2
         score += 5
         span.innerText = score
+        console.log(inputDir.x);
+        console.log(inputDir.y);
         snakeArr.unshift(
             {
                 x: snakeArr[0].x + inputDir.x, 
@@ -91,8 +93,8 @@ function gameEngine(){
         )
 
         food = {
-            x: Math.round(Math.random()*18),
-            y: Math.round(Math.random()*18)
+            x: Math.round(Math.random()*16),
+            y: Math.round(Math.random()*16)
         }
     }
 

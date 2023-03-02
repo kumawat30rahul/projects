@@ -58,25 +58,26 @@ function isCollide(sarr){
         return true
     }
 }
+
 function gameEngine(){
     // part1 updating the snake and food
-    if(isCollide(snakeArr)){
-        gameOver.play()
-        // musicSound.pause()
-        inputDir = {x:0 , y: 0}
-        alert("Press Any Key to continue")
-        snakeArr = [
-            {
-                x:13,
-                y: 15
-            }
-        ]
-        // musicSound.play()
-        speed = 5
-        score = 0;
-    }
+    // if(isCollide(snakeArr)){
+    //     gameOver.play()
+    //     // musicSound.pause()
+    //     inputDir = {x:0 , y: 0}
+    //     alert("Press Any Key to continue")
+    //     snakeArr = [
+    //         {
+    //             x:13,
+    //             y: 15
+    //         }
+    //     ]
+    //     // musicSound.play()
+    //     speed = 5
+    //     score = 0;
+    // }
 
-    // if the food is eaten updating the score and regenrating the food somewhereelse
+    // // if the food is eaten updating the score and regenrating the food somewhereelse
 
     if(snakeArr[0].x === food.x && snakeArr[0].y === food.y){
         foodSound.play()
@@ -107,7 +108,7 @@ function gameEngine(){
     snakeArr[0].y += inputDir.y
     // part 2 displaying the snake and food
 
-    // part 2a: displaying the head of the snake
+    // part 2a: sdisplaying the head of the snake
     board.innerHTML = ""
     snakeArr.forEach((e,index) =>{
         snakeHead = document.createElement('div')
@@ -136,7 +137,7 @@ function gameEngine(){
 
 window.requestAnimationFrame(main);
 window.addEventListener("keydown",(e) => {
-    inputDir = {x:0 ,y:1}
+    // inputDir = {x:0 ,y:1}
     // musicSound.play()
     moveSound.play()
     switch (e.key) {

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="singup.css">
+    <title>FE-3-C3</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_wrapper">
+            <div class="nav_logo" id="navLogo">
+                <img src="https://logos-world.net/wp-content/uploads/2022/01/Gymshark-Logo.png" alt="" class="logo" id="LOGO">
+            </div>
+            <div class="nav_contents" id="navContents">
+                <ul class="content_list" id="contentList">
+                    <li class="list_item" id="listItemHome">HOME</li>
+                    <li class="list_item" id="listItemLogIn">LOG IN</li>
+                    <li class="list_item" id="listItemSignUp">SIGN UP</li>
+                    <li class="list_item" id="listItemShop">SHOP</li>
+                    <li class="list_item" id="listItemMyCart">MY CART</li>
+                    <li class="list_item" id="listItemProfile">PROFILE</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="wrapper_signup" id="wrapperSingUp">
+        <h1 class="singup_heading" id="singipHeading">SIGN UP</h1>
+        <div class="signup_form" id="signUpForm">
+            <label for="fullName">Full Name</label>
+            <input type="text" class="full_name" id="fullName" required>
+            <label for="emailAddress">Email Address</label>
+            <input type="email" class="email_Address" id="emailAddress" required>
+            <label for="password">Your Password</label>
+            <input type="password" class="pass_word" id="password" required>
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="confirm_Password" id="confirmPassword" required>
+            <button type="submit" class="register" id="REGISTER">SIGN UP</button>
+        </div>
+    </div>
+    <script src="./signup.js"></script>
+</body>
+</html>

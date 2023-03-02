@@ -1,0 +1,121 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+.navbar_wrapper{
+    padding: 0 20px 0 20px;
+    height: 60px;
+    width: 100%;
+    background-color: black;
+    color: grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    height: 40px;
+    width: auto;
+    filter: invert(1);
+}
+
+.content_list{
+    width: 600px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.content_list > li {
+    margin: 0 px 0 5px;
+    padding: 5px 15px 5px 15px;
+    border: 2px solid rgba(128, 128, 128, 0.181);
+    cursor: pointer;
+    transition: border 100ms ease-in-out , color 100ms ease-in-out;
+}
+
+.content_list > li:hover{
+    border: 2px solid rgba(128, 128, 128, 0.779);
+    color: white;
+    transition: border 100ms ease-in-out , color 100ms ease-in-out;
+}
+
+.signup_details{
+    margin: 50px;
+}
+
+.title{
+    font-size: 70px;
+    margin-bottom: 10px;
+}
+
+
+.description{
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.buttons > button{
+    height: 50px;
+    width: 150px;
+    font-size: 15px;
+    border: 2px solid black;
+}
+
+.login{
+    background-color: black;
+    color: white;
+}
+
+.signup{
+    background-color: white;
+}
+
+.product_demo{
+    margin: 50px;
+}
+
+.prdt_card{
+    position: relative;
+    background-color: rgba(128, 128, 128, 0.355);
+
+    height: 284px;
+    width: 450px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.image{
+    height: 280px;
+    width: 230px;
+}
+
+.prdt_contents{
+    width: 180px;
+    position: absolute;
+    top: 5px;
+    left: 250px;
+}
+
+.prdt_contents > h1, p{
+    margin-bottom: 10px;
+}
+
+.digital_art{
+    
+    position: absolute;
+    top: 200px;
+    right: 150px;
+}
+.imgb{
+    height: 400px;
+    width: auto;
+}

@@ -118,3 +118,20 @@ body{
     color: white;
     cursor: pointer;
 }
+
+.checkOut{
+    position: fixed;
+    top: 60px;
+    left: 70%;
+    min-height: 100vh;
+    width: 30%;
+}
+
+.checkout_wrapper{
+    position: relative;
+    top: 10px;
+    left: 15px;
+    height: 550px;
+    width: 93%;
+    background-color: black;
+}

@@ -27,7 +27,7 @@ let loginBtn = document.getElementById('logIn')
             currUser["name"] = userData[index].name
             currUser["email"] = userData[index].email
             currUser["password"] = userData[index].password
-            currentUser["randomstring"] = uniqueString
+            currUser["randomstring"] = uniqueString
             localStorage.setItem('currentUser',JSON.stringify(currUser))
             // localStorage.setItem('uniqueString', uniqueString)
         }else{

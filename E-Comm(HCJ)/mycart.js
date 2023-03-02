@@ -12,17 +12,18 @@ productCards = products.map((product) => {
 
 productDiv.innerHTML = productCards.join("")
 
-const removeButton = document.querySelectorAll('.remove_item')
-removeButton.forEach((button) => {
-    const id = button.getAttribute('data-product-id')
-    console.log("id", id);
-    const index = data.findIndex((product) => product.id == id);
-if (index !== -1) {
-    data.splice(index, 1);
-    localStorage.setItem('cart', JSON.stringify(data));
-    data.map((product) => displayCard(product));
-}
-})
+productDiv.addEventListener('click', (event) => {
+    if (event.target.classList.contains('remove_item')) {
+      const id = event.target.getAttribute('data-product-id');
+      const index = data.findIndex((product) => product.id == id);
+      if (index !== -1) {
+        data.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(data));
+        productCards = data.map(product => displayCard(product));
+        productDiv.innerHTML = productCards.join("");
+      }
+    }
+  });
 
 //=====>>>>>>>>function to display card<<<<<=======//
 

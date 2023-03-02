@@ -37,7 +37,7 @@ body{
 
 .content_list > li {
     margin: 0 5px 0 5px;
-    padding: 5px 15px 5px 15px;
+    padding: 5px 10px 5px 10px;
     border: 2px solid rgba(128, 128, 128, 0.181);
     cursor: pointer;
     transition: border 100ms ease-in-out , color 100ms ease-in-out;

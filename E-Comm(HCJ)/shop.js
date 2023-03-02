@@ -40,6 +40,7 @@ fetch('./products.json')
             if (product) {
                 addToCartBtn.addEventListener("click", () => {
                     console.log("working");
+                    addToCartBtn.style.backgroundColor = 'green'
                     cart.push(product);
                     localStorage.setItem('cart', JSON.stringify(cart))
                 })

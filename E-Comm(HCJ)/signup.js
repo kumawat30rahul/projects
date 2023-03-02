@@ -4,13 +4,11 @@ const newPasswordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-
 let registerBTN = document.getElementById('REGISTER') // signup button element
 
 let userData =  []
-console.log(userData);
-const currentUser = JSON.parse(localStorage.getItem('currentUser'))
-console.log(currentUser);
 
-if(currentUser){
-    window.location.href = "shop.html"
-}else{
+
+// if(currentUser){
+//     window.location.href = "shop.html"
+// }else{
     registerBTN.addEventListener("click", () => {
         // e.preventDefault()
         let Name = document.getElementById('fullName').value       // name value input element
@@ -47,7 +45,7 @@ if(currentUser){
             }
         }
     })
-}
+// }
 
 //======>>>>>>>>navbar navigation<<<<<<<<=========//
 

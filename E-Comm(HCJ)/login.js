@@ -1,12 +1,17 @@
 let userData = JSON.parse(localStorage.getItem('userData'));
 console.log(userData);
 
-let currentUser = {
+let currUser = {
     name: "",
     email: "",
     password: "",
     randomstring: ""
 }
+const currentUser = JSON.parse(localStorage.getItem('currentUser'))
+
+if(currentUser){
+    window.location.href = "shop.html"
+}else{
 let loginBtn = document.getElementById('logIn')
     loginBtn.addEventListener("click",() => {
     
@@ -19,11 +24,11 @@ let loginBtn = document.getElementById('logIn')
             alert("Login Success")
             let uniqueString = randomStringGenerator()
             // userData[index].randomString = uniqueString
-            currentUser["name"] = userData[index].name
-            currentUser["email"] = userData[index].email
-            currentUser["password"] = userData[index].password
+            currUser["name"] = userData[index].name
+            currUser["email"] = userData[index].email
+            currUser["password"] = userData[index].password
             currentUser["randomstring"] = uniqueString
-            localStorage.setItem('currentUser',JSON.stringify(currentUser))
+            localStorage.setItem('currentUser',JSON.stringify(currUser))
             // localStorage.setItem('uniqueString', uniqueString)
         }else{
             if(loginEmail === "" && loginPassword === ""){
@@ -36,7 +41,7 @@ let loginBtn = document.getElementById('logIn')
         }
     })
 })
-
+}
 
 function randomStringGenerator(){
     let uniqueString = ""

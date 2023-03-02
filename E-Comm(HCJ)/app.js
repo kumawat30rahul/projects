@@ -20,8 +20,13 @@ fetch('./products.json')
     })
 
     const loginBtn = document.getElementById("Login")
+    const userData = JSON.parse(localStorage.getItem('userData'))
     loginBtn.addEventListener("click", ()=>{
-        window.location.href = "login.html"
+        if(userData){
+            window.location.href = "login.html"
+        }else{
+            alert("Please Sign Up before logging In")
+        }
     })
 
     const signupBtn = document.getElementById("SignUp")
@@ -42,7 +47,12 @@ home.addEventListener("click",()=>{
 })
 
 login.addEventListener("click",()=>{
-    window.location.href = "login.html"
+    if(user){
+        window.location.href = 'shop.html'
+    }else{
+        window.location.href = "login.html"
+    }
+    
 })
 signup.addEventListener("click",()=>{
     window.location.href = "signup.html"

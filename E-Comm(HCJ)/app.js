@@ -1,6 +1,6 @@
 //===>>>>>displayin the product on home page<<<<<<<=========//
 
-fetch('./products.json')
+fetch('https://fakestoreapi.com/products')
     .then((response) => response.json())
     .then(data => {
         let title = document.getElementById('prdtTitle')
@@ -22,11 +22,7 @@ fetch('./products.json')
     const loginBtn = document.getElementById("Login")
     const userData = JSON.parse(localStorage.getItem('userData'))
     loginBtn.addEventListener("click", ()=>{
-        if(userData){
             window.location.href = "login.html"
-        }else{
-            alert("Please Sign Up before logging In")
-        }
     })
 
     const signupBtn = document.getElementById("SignUp")
@@ -39,39 +35,64 @@ fetch('./products.json')
 const home = document.getElementById('listItemHome')
 const login = document.getElementById('listItemLogIn')
 const signup = document.getElementById('listItemSignUp')
-const myprofile = document.getElementById('listItemMyCart')
-const mycart = document.getElementById('listItemProfile')
+const myprofile = document.getElementById('listItemProfile')
+const mycart = document.getElementById('listItemMyCart')
+const shop = document.getElementById('listItemShop');
 
-home.addEventListener("click",()=>{
-    window.location.href = "index.html"
+signup.addEventListener("click",()=>{
+    window.location.href = "signup.html"
 })
 
+const user = JSON.parse(localStorage.getItem('currentUser'))
 login.addEventListener("click",()=>{
+    console.log("wokring");
     if(user){
+     console.log("wokring");
+
         window.location.href = 'shop.html'
     }else{
         window.location.href = "login.html"
     }
     
 })
-signup.addEventListener("click",()=>{
-    window.location.href = "signup.html"
-})
-
-const user = JSON.parse(loginStorage.getItem('currentUser'))
 myprofile.addEventListener("click",()=>{
+    console.log("wokring");
+
     if(user){
         window.location.href = 'myprofile.html'
     }else{
         alert("LogIn first")
     }
-
+    
 })
 mycart.addEventListener("click",()=>{
+    console.log("wokring");
+
     if(user){
         window.location.href = 'mycart.html'
     }else{
         alert("LogIn first")
     }
 
+})
+shop.addEventListener("click", () => {
+    console.log("wokring");
+
+    if (user) {
+        window.location.href = 'shop.html'
+    } else {
+        alert("LogIn first")
+    }
+
+})
+
+home.addEventListener("click",()=>{
+    console.log("wokring");
+
+    if(user){
+
+        window.location.href = "shop.html"
+    }else{
+        alert("Login first")
+    }
 })

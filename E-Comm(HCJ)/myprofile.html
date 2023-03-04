@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="myprofile.css">
+    <title>Me-Shop</title>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_wrapper">
+            <div class="nav_logo" id="navLogo">
+                <img src="https://logos-world.net/wp-content/uploads/2022/01/Gymshark-Logo.png" alt="" class="logo" id="LOGO">
+            </div>
+            <div class="nav_contents" id="navContents">
+                <ul class="content_list" id="contentList">
+                    <li class="list_item" id="listItemHome">HOME</li>
+                    <li class="list_item" id="listItemLogIn">LOG IN</li>
+                    <li class="list_item" id="listItemSignUp">SIGN UP</li>
+                    <li class="list_item" id="listItemShop">SHOP</li>
+                    <li class="list_item" id="listItemMyCart">MY CART</li>
+                    <li class="list_item" id="listItemProfile">PROFILE</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <button class="log_out" id="logOut">LOGOUT</button>
+    <section class="changing name_change">
+        <div class="change_div name_div" id="nameDiv">
+            <h1 class="welcome">Welcome back: <span class="name" id="NAME"></span></h1>
+            <h3 class="change_name" id="changeName">Update Your Name</h3>
+            <label for="newName">Provide your new name</label>
+            <input type="text" class="new_name" id="newName">
+            <button class="change" id="Change">Update</button>
+        </div>
+    </section>
+    <section class="changing password_change">
+        <div class="change_div dashboard_form" id="dashboardForm">
+            <h3 class="h">Change Password</h3>
+            <label for="oldPassword">Old Password</label>
+            <input type="password" class="old_password" id="oldPassword" required>
+            <label for="newPassword">New Password</label>
+            <input type="password" class="new_Password" id="newPassword" required>
+            <label for="confirmNewPassword">Confirm Password</label>
+            <input type="password" class="confirm_new_Password" id="confirmNewPassword" required>
+            <button type="submit" class="change_password" id="changePassword">Change</button>
+        </div>
+    </section>
+    <script src="./myprofile.js"></script>
+</body>
+</html>

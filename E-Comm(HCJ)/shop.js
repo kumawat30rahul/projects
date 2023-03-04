@@ -19,33 +19,50 @@ function createProductCard(product) {
       </div>
     `;
 }
+
+
 //===>>>>>fetching the data<<<<===//
 let productCards;
 let tofilterData;
-let products
-fetch('./products.json')
+let products;
+fetch('https://fakestoreapi.com/products')
     .then(res => res.json())
     .then(data => {
+      let sizes = ['S','M','L','XL']
+      let colours = ['red','blue','black'];
+      
+        data = data.map(product => {
+          
+          return {
+            ...product,
+            sizes: sizes[Math.round(Math.random()*4)],
+            colours: colours[Math.round(Math.random()*3)]
+          }
+        })
+        
         products = data
+        console.log(products);
         tofilterData = data;
-        productCards = products.map(product => createProductCard(product))
+        productCards = products.map(product => {
+          return createProductCard(product)
+        })
         productDiv.innerHTML = productCards.join("")
 
         //=======>>>>>>>adding to cart<<<<<<<<============//
-        let addToCartBtns = document.querySelectorAll('#addToCart')
+
         const cart = JSON.parse(localStorage.getItem('cart')) || []
-        addToCartBtns.forEach((addToCartBtn) => {
-            const id = addToCartBtn.getAttribute('data-product-id')
-            const product = data.find((product) => product.id == id)
+        productDiv.addEventListener('click', (event) => {
+          const addToCartBtn = event.target.closest('#addToCart');
+          if (addToCartBtn) {
+            const id = addToCartBtn.getAttribute('data-product-id');
+            const product = data.find((product) => product.id == id);
             if (product) {
-                addToCartBtn.addEventListener("click", () => {
-                    console.log("working");
-                    addToCartBtn.style.backgroundColor = 'green'
-                    cart.push(product);
-                    localStorage.setItem('cart', JSON.stringify(cart))
-                })
+              addToCartBtn.style.backgroundColor = 'green'
+              cart.push(product);
+              localStorage.setItem('cart', JSON.stringify(cart));
             }
-        })
+          }
+        });
 
     })
 
@@ -82,6 +99,7 @@ function showProducts(category) {
 }
 //======>>>>>>>>filter function<<<<<<<<<=========//
 const filterArray = document.querySelectorAll('[type=checkbox]')
+console.log(filterArray);
 let filterValues = []
 
 filterArray.forEach(filter => {
@@ -102,17 +120,18 @@ filterArray.forEach(filter => {
 
 function filterShowCategory(filter_values) {
   productDiv.innerHTML = "";
-  let filteredproducts = tofilterData;
+  let filteredproducts = tofilterData.slice();
 
   if (filterValues.length === 0) {
-    products = tofilterData
+    products = tofilterData.slice();
   } else {
-    const categoryArray = filter_values.filter(values => {
-      return !values.includes("-")
-    })
-    if (categoryArray && categoryArray.length > 0) {
+    const sizeArray = filter_values.filter(values => {
+      return values === 'S' || values === 'M' || values === 'L' || values === 'XL'
+     })
+    console.log(sizeArray);
+    if (sizeArray && sizeArray.length > 0) {
       filteredproducts = filteredproducts.filter((product) => {
-        return categoryArray.includes(product.category)
+        return sizeArray.includes(product.sizes)
       });
     }
 
@@ -128,16 +147,13 @@ function filterShowCategory(filter_values) {
         })
       })
     }
-    const rateRangeArray = filter_values.filter(values => {
-      return values.includes("*");
+    const colourArray = filter_values.filter(values => {
+      return values === 'red' || values === 'blue'|| values === 'black';
     })
-    if (rateRangeArray && rateRangeArray.length > 0) {
+    console.log(colourArray);
+    if (colourArray && colourArray.length > 0) {
       filteredproducts = filteredproducts.filter(product => {
-        return rateRangeArray.some((range) => {
-          const min = parseInt(range.split("*")[0]);
-          const max = parseInt(range.split("*")[1]);
-          return product.rating["rate"] >= min && product.rating["rate"] <= max
-        })
+        return colourArray.includes(product.colours)
       })
     }
   }
@@ -146,6 +162,26 @@ function filterShowCategory(filter_values) {
   productCards = products.map(product => createProductCard(product));
   productDiv.innerHTML = productCards.join("");
 }
+
+//========>>>> searchbar functionality<<<<========//
+let searchBarFilter = document.getElementById('searchIcon')
+let searchInputValueFunction = document.getElementById('searchBar')
+
+let newProducts;
+searchInputValueFunction.addEventListener("keyup",() => {
+  let searchInputValue = document.getElementById('searchBar')
+  productDiv.innerHTML = "";
+  let searchValue = searchInputValue.value
+  products = tofilterData
+  products = products.filter(product => {
+    return product.title.toLowerCase().includes(searchValue.toLowerCase())
+  })
+  products.sort()
+  newProducts = products.map(product => createProductCard(product))
+  productDiv.innerHTML = newProducts.join("");
+})
+
+
 //======>>>>>>>>navbar navigation<<<<<<<<=========//
 
 const home = document.getElementById('listItemHome')
@@ -157,14 +193,14 @@ const mycart = document.getElementById('listItemMyCart')
 const shop = document.getElementById('listItemShop')
 
 home.addEventListener("click", () => {
-    window.location.href = "index.html"
+    location.reload()
 })
 
 login.addEventListener("click", () => {
-    window.location.href = "login.html"
+    alert("Logout first")
 })
 signup.addEventListener("click", () => {
-    window.location.href = "signup.html"
+  alert("Logout First to sign up")
 })
 
 const user = JSON.parse(localStorage.getItem('currentUser'))

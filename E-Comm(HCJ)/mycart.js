@@ -1,33 +1,52 @@
 // displaying th eproducts========
 
 const data = JSON.parse(localStorage.getItem('cart'))
-console.log(data);
-let productDiv = document.getElementById('cartPrdtWrapper')
 
+let productDiv = document.getElementById('cartPrdtWrapper')
+let checkOutDiv = document.getElementById('checkPrice')
+let total = document.getElementById('Total')
+
+let productPrices;
 let productCards;
 let products = data
-productCards = products.map((product) => {
-    return displayCard(product);
-})
-
-productDiv.innerHTML = productCards.join("")
+if(data){
+    productCards = products.map((product) => {
+        return displayCard(product);
+    })
+    productDiv.innerHTML = productCards.join("")
+    
+    productPrices = products.map((product,index) => {
+        return displayPrice(product,index+1)
+    })
+    checkOutDiv.innerHTML = productPrices.join("")
+    
+    let totalPrice = cartPrice();
+    total.innerText = `$${totalPrice.toFixed(2)}`
+}
 
 productDiv.addEventListener('click', (event) => {
     if (event.target.classList.contains('remove_item')) {
-      const id = event.target.getAttribute('data-product-id');
-      const index = data.findIndex((product) => product.id == id);
-      if (index !== -1) {
-        data.splice(index, 1);
-        localStorage.setItem('cart', JSON.stringify(data));
-        productCards = data.map(product => displayCard(product));
-        productDiv.innerHTML = productCards.join("");
-      }
+        const id = event.target.getAttribute('data-product-id');
+        const index = data.findIndex((product) => product.id == id);
+        if (index !== -1) {
+            data.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(data));
+
+            productCards = data.map(product => displayCard(product));
+            productPrices = data.map((product,index) => displayPrice(product,index+1));
+
+            totalPrice = cartPrice();
+            total.innerText = `$${totalPrice.toFixed(2)}`
+
+            productDiv.innerHTML = productCards.join("");
+            checkOutDiv.innerHTML = productPrices.join("")
+        }
     }
-  });
+});
 
 //=====>>>>>>>>function to display card<<<<<=======//
 
-function displayCard(product){
+function displayCard(product) {
     return `
             <div class="prdt_card">
                 <div class="prdt_img" id="prdtImg">
@@ -45,6 +64,49 @@ function displayCard(product){
             </div>
             `
 }
+//=====>>>>>>>>function to display the p[rice of the cards<<<<<<=====//
+
+function displayPrice(product,index) {
+    
+    return `
+        <div class="checkou_prdt_price" id="checkoutPrdtPrice">
+            <p class="serial_number" id="serialNumber">${index}.</p>
+            <div class="name_price" id="namePrice">
+                <p class="name" id="Name">${product.title.split(" ").splice(0, 3).join(" ")}</p>
+                <p class="price" id="Price">$${product.price}</p>
+            </div>
+        </div>
+    `
+}
+//=======>>>>>>function to calculate total of the cart<<<<<<=======//
+function cartPrice() {
+    return data.reduce((sum, product) => {
+        return sum + product.price
+    }, 0)
+}
+//=======>>>>>>>payment process<<<<<<<<<==========//
+let paymentAmount = cartPrice();
+document.getElementById("checkOutbtn").onclick = function (e) {
+    console.log("wroking");
+    var options = {
+      key: "rzp_test_9OXl2wK2vH03Va", // Enter the Key ID generated from the Dashboard
+      amount: paymentAmount * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      currency: "INR",
+      name: "MyShop Checkout",
+      description: "This is your order", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      theme: {
+        color: "#000",
+      },
+      image:
+        "https://www.mintformations.co.uk/blog/wp-content/uploads/2020/05/shutterstock_583717939.jpg",
+        callback_url: 'shop.html'
+    };
+  
+    var rzpy1 = new Razorpay(options);
+    rzpy1.open();
+    // clear mycart - localStorage
+    e.preventDefault();
+  };
 //======>>>>>>>>navbar navigation<<<<<<<<=========//
 
 const home = document.getElementById('listItemHome')
@@ -55,14 +117,14 @@ const mycart = document.getElementById('listItemMyCart')
 const shop = document.getElementById('listItemShop')
 
 home.addEventListener("click", () => {
-    window.location.href = "index.html"
+    window.location.href = "shop.html"
 })
 
 login.addEventListener("click", () => {
     window.location.href = "login.html"
 })
 signup.addEventListener("click", () => {
-    window.location.href = "signup.html"
+    alert("Logout First to sign up")
 })
 
 const user = JSON.parse(localStorage.getItem('currentUser'))

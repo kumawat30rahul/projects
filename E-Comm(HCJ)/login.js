@@ -1,5 +1,4 @@
 let userData = JSON.parse(localStorage.getItem('userData'));
-console.log(userData);
 
 let currUser = {
     name: "",
@@ -14,32 +13,36 @@ if(currentUser){
 }else{
 let loginBtn = document.getElementById('logIn')
     loginBtn.addEventListener("click",() => {
-    
-    let loginEmail = document.getElementById('emailAddress').value
-    let loginPassword = document.getElementById('password').value
-
-    userData.forEach((user,index) => {
-        if(loginEmail === user.email && loginPassword === user.password){
-            window.location.href = "shop.html"
-            alert("Login Success")
-            let uniqueString = randomStringGenerator()
-            // userData[index].randomString = uniqueString
-            currUser["name"] = userData[index].name
-            currUser["email"] = userData[index].email
-            currUser["password"] = userData[index].password
-            currUser["randomstring"] = uniqueString
-            localStorage.setItem('currentUser',JSON.stringify(currUser))
-            // localStorage.setItem('uniqueString', uniqueString)
+        if(!userData){
+            alert("USER NOT FOUND!!! Sign Up first")
         }else{
-            if(loginEmail === "" && loginPassword === ""){
-                alert("Please provide valid email and password!")
-            }else if(loginEmail !== user.email){
-                alert("Incorrect Email!")
-            }else if(loginPassword !== user.password){
-                alert("Incorrect Password!")
-            }
+            let loginEmail = document.getElementById('emailAddress').value
+            let loginPassword = document.getElementById('password').value
+        
+            userData.forEach((user,index) => {
+                if(loginEmail === user.email && loginPassword === user.password){
+                    window.location.href = "shop.html"
+                    alert("Login Success")
+                    let uniqueString = randomStringGenerator()
+                    // userData[index].randomString = uniqueString
+                    currUser["name"] = userData[index].name
+                    currUser["email"] = userData[index].email
+                    currUser["password"] = userData[index].password
+                    currUser["randomstring"] = uniqueString
+                    localStorage.setItem('currentUser',JSON.stringify(currUser))
+                    // localStorage.setItem('uniqueString', uniqueString)
+                }else{
+                    if(loginEmail === "" && loginPassword === ""){
+                        alert("Please provide valid email and password!")
+                    }else if(loginEmail !== user.email){
+                        alert("Incorrect Email!")
+                    }else if(loginPassword !== user.password){
+                        alert("Incorrect Password!")
+                    }
+                }
+            })
         }
-    })
+    
 })
 }
 
@@ -57,20 +60,20 @@ function randomStringGenerator(){
 const home = document.getElementById('listItemHome')
 const login = document.getElementById('listItemLogIn')
 const signup = document.getElementById('listItemSignUp')
-const myprofile = document.getElementById('listItemMyCart')
-const mycart = document.getElementById('listItemProfile')
+const myprofile = document.getElementById('listItemProfile')
+const mycart = document.getElementById('listItemMyCart')
 const shop = document.getElementById('listItemShop')
 
-home.addEventListener("click",()=>{
-    window.location.href = "index.html"
+login.addEventListener("click",()=>{
+    location.reload()
+    
 })
-
 
 signup.addEventListener("click",()=>{
     window.location.href = "signup.html"
 })
 
-const user = JSON.parse(loginStorage.getItem('currentUser'))
+const user = JSON.parse(localStorage.getItem('currentUser'))
 myprofile.addEventListener("click",()=>{
     if(user){
         window.location.href = 'myprofile.html'
@@ -95,4 +98,12 @@ shop.addEventListener("click", () => {
         alert("LogIn first")
     }
 
+})
+
+ home.addEventListener("click",()=>{
+     if (user) {
+        window.location.href = 'shop.html'
+     } else {
+         alert("LogIn first")
+     }
 })

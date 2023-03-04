@@ -52,22 +52,23 @@ let userData =  []
 const home = document.getElementById('listItemHome')
 const login = document.getElementById('listItemLogIn')
 const signup = document.getElementById('listItemSignUp')
-const myprofile = document.getElementById('listItemMyCart')
-const mycart = document.getElementById('listItemProfile')
+const myprofile = document.getElementById('listItemProfile')
+const mycart = document.getElementById('listItemMyCart')
 const shop = document.getElementById('listItemShop')
 
 home.addEventListener("click",()=>{
-    window.location.href = "index.html"
+    // window.location.href = "index.html"
+    alert("Login First")
 })
 
 login.addEventListener("click",()=>{
     window.location.href = "login.html"
 })
 signup.addEventListener("click",()=>{
-    window.location.href = "signup.html"
+    location.reload()
 })
 
-const user = JSON.parse(loginStorage.getItem('currentUser'))
+const user = JSON.parse(localStorage.getItem('currentUser'))
 myprofile.addEventListener("click",()=>{
     if(user){
         window.location.href = 'myprofile.html'

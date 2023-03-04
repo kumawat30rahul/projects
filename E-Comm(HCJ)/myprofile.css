@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;;
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+}
+
+.navbar_wrapper{
+    padding: 0 20px 0 20px;
+    height: 60px;
+    width: 100%;
+    background-color: black;
+    color: grey;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    height: 40px;
+    width: auto;
+    filter: invert(1);
+}
+
+.content_list{
+    width: 600px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+
+.content_list > li {
+    margin: 0 px 0 5px;
+    padding: 5px 10px 5px 10px;
+    border: 2px solid rgba(128, 128, 128, 0.181);
+    cursor: pointer;
+    transition: border 100ms ease-in-out , color 100ms ease-in-out;
+}
+
+.content_list > li:hover{
+    border: 2px solid rgba(128, 128, 128, 0.779);
+    color: white;
+    transition: border 100ms ease-in-out , color 100ms ease-in-out;
+}
+
+
+.changing{
+    padding: 50px 0 10px 50px;
+    height: auto;
+    width: 100%;
+}
+.welcome{
+    font-size: 35px;
+}
+.welcome >span{
+    color: rgba(0, 0, 0, 0.837);
+}
+
+.change_div{
+    display: flex;
+    flex-direction: column;
+}
+.change_div > h3{
+    margin: 15px 15px 15px 0;
+}
+.change_div > input {
+    width: 20%;
+    height: 30px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+}
+.change_div > button {
+    cursor: pointer;
+    width: 15%;
+    height: 30px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+}
+
+.log_out{
+    position: absolute;
+    right: 100px;
+    top: 100px;
+    height: 50px;
+    width: 150px;
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 5px red;
+    cursor: pointer;
+}

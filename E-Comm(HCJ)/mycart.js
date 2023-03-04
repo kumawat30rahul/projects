@@ -99,7 +99,10 @@ document.getElementById("checkOutbtn").onclick = function (e) {
       },
       image:
         "https://www.mintformations.co.uk/blog/wp-content/uploads/2020/05/shutterstock_583717939.jpg",
-        callback_url: 'shop.html'
+        handler: function (response) {
+            // Redirect the user to the shop.html page after the payment is completed
+            window.location.href = "shop.html";
+          },
     };
   
     var rzpy1 = new Razorpay(options);

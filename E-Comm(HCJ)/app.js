@@ -1,15 +1,14 @@
 //===>>>>>displayin the product on home page<<<<<<<=========//
 
-fetch('https://fakestoreapi.com/products')
+fetch('https://fakestoreapi.com/products') //////========>>>>>>>>> fetching data with fetch
     .then((response) => response.json())
     .then(data => {
-        let title = document.getElementById('prdtTitle')
-        let rating = document.getElementById('rate')
-        let description = document.getElementById('DESC')
-        let image = document.getElementById('IMAGE')
-        let price = document.getElementById('PRICE')
+        let title = document.getElementById('prdtTitle')  ///////////////////////////////
+        let rating = document.getElementById('rate')      ///////////////////////////////
+        let description = document.getElementById('DESC') /////// Accessing card elements for display
+        let image = document.getElementById('IMAGE')      ///////////////////////////////
+        let price = document.getElementById('PRICE')      ///////////////////////////////
 
-        console.log(data);
         const product = data[3]
         title.innerText = product.title
         price.innerText = `Price: $${product.price}`
@@ -19,6 +18,7 @@ fetch('https://fakestoreapi.com/products')
 
     })
 
+    //-------->>>>> buttons on home page and their navigation to respective pages <<<---------//    
     const loginBtn = document.getElementById("Login")
     const userData = JSON.parse(localStorage.getItem('userData'))
     loginBtn.addEventListener("click", ()=>{
@@ -43,18 +43,16 @@ signup.addEventListener("click",()=>{
     window.location.href = "signup.html"
 })
 
-const user = JSON.parse(localStorage.getItem('currentUser'))
-login.addEventListener("click",()=>{
-    console.log("wokring");
-    if(user){
-     console.log("wokring");
+const user = JSON.parse(localStorage.getItem('currentUser'))  //=======>>>>> getting user from localstorage to check if logedin or not
 
+login.addEventListener("click",()=>{
+    if(user){
         window.location.href = 'shop.html'
     }else{
         window.location.href = "login.html"
     }
-    
 })
+
 myprofile.addEventListener("click",()=>{
     console.log("wokring");
 
@@ -66,31 +64,23 @@ myprofile.addEventListener("click",()=>{
     
 })
 mycart.addEventListener("click",()=>{
-    console.log("wokring");
-
     if(user){
         window.location.href = 'mycart.html'
     }else{
         alert("LogIn first")
     }
-
 })
-shop.addEventListener("click", () => {
-    console.log("wokring");
 
+shop.addEventListener("click", () => {
     if (user) {
         window.location.href = 'shop.html'
     } else {
         alert("LogIn first")
     }
-
 })
 
 home.addEventListener("click",()=>{
-    console.log("wokring");
-
     if(user){
-
         window.location.href = "shop.html"
     }else{
         alert("Login first")

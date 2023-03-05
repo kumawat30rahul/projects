@@ -1,6 +1,6 @@
 // displaying th eproducts========
 
-const data = JSON.parse(localStorage.getItem('cart'))
+const data = JSON.parse(localStorage.getItem('cart')) //------------->>>>> accessing the cart data through localstorage
 
 let productDiv = document.getElementById('cartPrdtWrapper')
 let checkOutDiv = document.getElementById('checkPrice')
@@ -9,27 +9,32 @@ let total = document.getElementById('Total')
 let productPrices;
 let productCards;
 let products = data
-if(data){
-    productCards = products.map((product) => {
+
+if(data){                                           //------------>>>>if data is found displaying the products and prices
+    productCards = products.map((product) => {      //------------>>>> products
         return displayCard(product);
     })
     productDiv.innerHTML = productCards.join("")
     
-    productPrices = products.map((product,index) => {
+    productPrices = products.map((product,index) => { //------------->>>> prices
         return displayPrice(product,index+1)
     })
     checkOutDiv.innerHTML = productPrices.join("")
-    
-    let totalPrice = cartPrice();
+     
+    let totalPrice = cartPrice();                    //------------->>>>> calling the total price function
     total.innerText = `$${totalPrice.toFixed(2)}`
 }
 
+//----------->>>>> remove button functionality <<<<<<---------------//
+
 productDiv.addEventListener('click', (event) => {
-    if (event.target.classList.contains('remove_item')) {
+    if (event.target.classList.contains('remove_item')) { //---------- accessssing the remove button
+
         const id = event.target.getAttribute('data-product-id');
-        const index = data.findIndex((product) => product.id == id);
+        const index = data.findIndex((product) => product.id == id); //------ fincdint th eproduct id after clicking on the button
+
         if (index !== -1) {
-            data.splice(index, 1);
+            data.splice(index, 1); //---- removing the products and mapping afterwards
             localStorage.setItem('cart', JSON.stringify(data));
 
             productCards = data.map(product => displayCard(product));
@@ -85,6 +90,7 @@ function cartPrice() {
     }, 0)
 }
 //=======>>>>>>>payment process<<<<<<<<<==========//
+
 let paymentAmount = cartPrice();
 document.getElementById("checkOutbtn").onclick = function (e) {
     console.log("wroking");

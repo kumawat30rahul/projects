@@ -1,24 +1,21 @@
 
-const emailPattern = /^[a-z0-9]+@[a-z]+\.[a-z]{2,4}$/
-const newPasswordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+const emailPattern = /^[a-z0-9]+@[a-z]+\.[a-z]{2,4}$/                                                  //------- Email regular expression
+const newPasswordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/      //------- Password regular expression
 let registerBTN = document.getElementById('REGISTER') // signup button element
 
 let userData =  []
 
-
-// if(currentUser){
-//     window.location.href = "shop.html"
-// }else{
     registerBTN.addEventListener("click", () => {
-        // e.preventDefault()
         let Name = document.getElementById('fullName').value       // name value input element
         let Email = document.getElementById('emailAddress').value   //email value input element
         let newPassword = document.getElementById('password').value // new passowrd value input element
         let confirmPassword = document.getElementById('confirmPassword').value // confirm pass value input element
-        // let errorMessage = document.getElementById('errorMsg')                  // para element for error message
-        console.log("working");
 
-        if (emailPattern.test(Email) && newPasswordPattern.test(newPassword) && newPassword !== Name && newPassword !== Email && confirmPassword === newPassword) {
+        if ( emailPattern.test(Email) && 
+             newPasswordPattern.test(newPassword) && 
+             newPassword !== Name && 
+             newPassword !== Email && 
+             confirmPassword === newPassword) {  //========>>>>>>email and passwrod validation
             let user = {
                 name: Name,
                 email: Email,
@@ -57,13 +54,13 @@ const mycart = document.getElementById('listItemMyCart')
 const shop = document.getElementById('listItemShop')
 
 home.addEventListener("click",()=>{
-    // window.location.href = "index.html"
     alert("Login First")
 })
 
 login.addEventListener("click",()=>{
     window.location.href = "login.html"
 })
+
 signup.addEventListener("click",()=>{
     location.reload()
 })
@@ -75,8 +72,9 @@ myprofile.addEventListener("click",()=>{
     }else{
         alert("LogIn first")
     }
-
 })
+
+
 mycart.addEventListener("click",()=>{
     if(user){
         window.location.href = 'mycart.html'
@@ -92,5 +90,4 @@ mycart.addEventListener("click",()=>{
     } else {
         alert("LogIn first")
     }
-
 })

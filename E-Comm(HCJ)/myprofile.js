@@ -1,15 +1,18 @@
 const currentUser = JSON.parse(localStorage.getItem('currentUser'))
 const userData = JSON.parse(localStorage.getItem('userData'))
-let yourName = document.getElementById('NAME')
-yourName.innerText = currentUser.name
 
-let nameIndex;
+
+let yourName = document.getElementById('NAME')
+yourName.innerText = currentUser.name /////////////=========>>>>>> name display = WELCOME BACK RAHUL
+
+let nameIndex;                       //===========>>>>>>>>>> stroing index value of current user in userData for updation
 userData.forEach((user,index)=>{
     if(user.name === currentUser.name){
         nameIndex = index
     }
 })
 
+//==============>>>>>>>> NAME UPDATION FUNCTION <<<<<<<==========//
 
 let nameButton = document.getElementById('Change')
 nameButton.addEventListener("click",()=>{
@@ -24,14 +27,20 @@ nameButton.addEventListener("click",()=>{
     },500)
 })
 
+//==============>>>>>>>> PASSWORD UPDATION FUNCTION <<<<<<<==========//
+
 let passwordButton = document.getElementById('changePassword')
 passwordButton.addEventListener("click",()=>{
-    let oldPassword = document.getElementById('oldPassword').value
-        let newPassword = document.getElementById('newPassword').value
-        let confirmPassword = document.getElementById('confirmNewPassword').value
-    if(oldPassword === userData[nameIndex].password && oldPassword === currentUser.password){
+
+    let oldPassword = document.getElementById('oldPassword').value  //===== Old password
+    let newPassword = document.getElementById('newPassword').value  //===== New password
+    let confirmPassword = document.getElementById('confirmNewPassword').value   //===== Confirm password
+
+    if(oldPassword === userData[nameIndex].password && oldPassword === currentUser.password){  //==== condtion to match password
         if(newPassword === confirmPassword){
 
+            //========>>>>>>> updating the local storage items <<<<<<<======//
+            
             userData[nameIndex].password = newPassword
             currentUser.password = newPassword
             localStorage.setItem('currentUser',JSON.stringify(currentUser))
@@ -47,6 +56,7 @@ passwordButton.addEventListener("click",()=>{
     }
 })
 //=======>>>>>>>> logout functionality<<<<========//
+
 let logoutBtn = document.getElementById('logOut')
 logoutBtn.addEventListener("click",()=>{
     localStorage.removeItem('currentUser')

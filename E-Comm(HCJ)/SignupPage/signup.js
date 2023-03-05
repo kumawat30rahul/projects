@@ -23,7 +23,7 @@ let userData =  []
             }
             userData.push(user)
             localStorage.setItem('userData', JSON.stringify(userData));
-            window.location.href = "login.html"
+            window.location.href = "../LoginPage/login.html"
         } else {
             if (Name === "" && Email === "" && newPassword === "" && confirmPassword === "") {
                 alert("Please Provide Valid Details")

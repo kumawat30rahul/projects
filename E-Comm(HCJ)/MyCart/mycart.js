@@ -105,9 +105,9 @@ document.getElementById("checkOutbtn").onclick = function (e) {
       },
       image:
         "https://www.mintformations.co.uk/blog/wp-content/uploads/2020/05/shutterstock_583717939.jpg",
-        handler: function (response) {
+        handler: function () {
             // Redirect the user to the shop.html page after the payment is completed
-            window.location.href = "shop.html";
+            window.location.href = "../Shop/shop.html";
           },
     };
   
@@ -126,7 +126,7 @@ const mycart = document.getElementById('listItemMyCart')
 const shop = document.getElementById('listItemShop')
 
 home.addEventListener("click", () => {
-    window.location.href = "shop.html"
+    window.location.href = "../Shop/shop.html"
 })
 
 login.addEventListener("click", () => {
@@ -139,7 +139,7 @@ signup.addEventListener("click", () => {
 const user = JSON.parse(localStorage.getItem('currentUser'))
 myprofile.addEventListener("click", () => {
     if (user) {
-        window.location.href = 'myprofile.html'
+        window.location.href = '../MyProfile/myprofile.html'
     } else {
         alert("LogIn first")
     }
@@ -147,7 +147,7 @@ myprofile.addEventListener("click", () => {
 })
 mycart.addEventListener("click", () => {
     if (user) {
-        window.location.href = 'mycart.html'
+        window.location.href = '../MyCart/mycart.html'
     } else {
         alert("LogIn first")
     }
@@ -156,7 +156,7 @@ mycart.addEventListener("click", () => {
 
 shop.addEventListener("click", () => {
     if (user) {
-        window.location.href = 'shop.html'
+        window.location.href = '../Shop/shop.html'
     } else {
         alert("LogIn first")
     }

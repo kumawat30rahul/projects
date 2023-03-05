@@ -58,7 +58,7 @@ home.addEventListener("click",()=>{
 })
 
 login.addEventListener("click",()=>{
-    window.location.href = "login.html"
+    window.location.href = "../LoginPage/login.html"
 })
 
 signup.addEventListener("click",()=>{
@@ -68,7 +68,7 @@ signup.addEventListener("click",()=>{
 const user = JSON.parse(localStorage.getItem('currentUser'))
 myprofile.addEventListener("click",()=>{
     if(user){
-        window.location.href = 'myprofile.html'
+        window.location.href = '../MyProfile/myprofile.html'
     }else{
         alert("LogIn first")
     }
@@ -77,7 +77,7 @@ myprofile.addEventListener("click",()=>{
 
 mycart.addEventListener("click",()=>{
     if(user){
-        window.location.href = 'mycart.html'
+        window.location.href = '../MyCart/mycart.html'
     }else{
         alert("LogIn first")
     }
@@ -86,7 +86,7 @@ mycart.addEventListener("click",()=>{
 
  shop.addEventListener("click", () => {
     if (user) {
-        window.location.href = 'shop.html'
+        window.location.href = '../Shop/shop.html'
     } else {
         alert("LogIn first")
     }

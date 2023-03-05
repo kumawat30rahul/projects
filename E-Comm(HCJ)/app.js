@@ -40,7 +40,7 @@ const mycart = document.getElementById('listItemMyCart')
 const shop = document.getElementById('listItemShop');
 
 signup.addEventListener("click",()=>{
-    window.location.href = "SignupPage/signup.html"
+    window.location.href = "./SignupPage/signup.html"
 })
 
 const user = JSON.parse(localStorage.getItem('currentUser'))  //=======>>>>> getting user from localstorage to check if logedin or not

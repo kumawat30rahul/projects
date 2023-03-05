@@ -70,7 +70,7 @@ login.addEventListener("click", () => {
 })
 
 signup.addEventListener("click", () => {
-    window.location.href = "signup.html"
+    window.location.href = "../SignupPage/signup.html"
 })
 
 const user = JSON.parse(localStorage.getItem('currentUser'))

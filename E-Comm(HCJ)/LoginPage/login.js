@@ -9,7 +9,7 @@ let currUser = {     //---------->>>>>>>>>>>>>>>>>>>> object for current user
 const currentUser = JSON.parse(localStorage.getItem('currentUser')) //=======>>>>> getting user from localstorage to check if logedin or not
 
 if (currentUser) {
-    window.location.href = "shop.html"  //=================>>>>>>>>> if loged in then redirect to shop page
+    window.location.href = "../Shop/shop.html"  //=================>>>>>>>>> if loged in then redirect to shop page
 } else {
     let loginBtn = document.getElementById('logIn')
     loginBtn.addEventListener("click", () => {

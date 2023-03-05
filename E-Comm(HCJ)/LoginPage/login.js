@@ -21,7 +21,7 @@ if (currentUser) {
 
             userData.forEach((user, index) => {
                 if (loginEmail === user.email && loginPassword === user.password) {    //========>>>> password and email validation
-                    window.location.href = "shop.html"                               //========>>>> redirection to shop page after login
+                    window.location.href = "../Shop/shop.html"                               //========>>>> redirection to shop page after login
                     alert("Login Success")
 
                     let uniqueString = randomStringGenerator()                      //========>>>> calling the random string generator function
